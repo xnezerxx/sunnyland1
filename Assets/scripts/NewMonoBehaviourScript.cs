@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight = true;
 
     // Стейты (состояния)
-    private bool isGrounded;
+    public bool isGrounded;
     private bool isTouchingWall;
     private bool isWallSliding;
     private bool isWallJumping;
@@ -135,10 +135,11 @@ public class PlayerController : MonoBehaviour
         // 6. Управление анимациями (если компонент Animator добавлен на персонажа)
         if (anim != null)
         {
-            anim.SetFloat("Speed", Mathf.Abs(horizontalInput));
+            anim.SetFloat("speed", Mathf.Abs(horizontalInput));
             anim.SetBool("IsGrounded", isGrounded);
             anim.SetBool("IsWallSliding", isWallSliding);
             anim.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+            
         }
     }
 
